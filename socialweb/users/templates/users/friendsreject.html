@@ -1,0 +1,14 @@
+{% extends 'users/base.html' %}
+{% block content %}
+
+
+<h1>Предложение дружбы отклонено</h1>
+<a href="{% url 'friendship' pk=user.pk %}" class="nav-link link-dark">
+    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+    Вернуться к друзьям   
+  </a>
+<a href="{% url 'home' %}" class="nav-link link-dark">
+    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+    Вернутья на главную страницу
+</a>
+{% endblock %}

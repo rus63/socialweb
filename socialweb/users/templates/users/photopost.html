@@ -1,0 +1,20 @@
+{% extends 'users/base.html' %}
+{% block content %}
+{% for f in images %}
+{% if f.photos %}
+    <img src="{{ f.photos.url }}" alt="" height="150">
+    <a href="{% url 'deletephotopost' pk=f.pk %}" class="nav-link link-dark">
+        <svg width="16" height="16"><use xlink:href="#table"></use></svg>
+        Удалить
+      </a>
+{% endif %}
+
+{% endfor %}
+<h1>{{noimage}}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Добавить изображение</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'users/base.html' %}
+{% block content %}
+{% if request.user.is_authenticated %}
+
+<form method="post">{% csrf_token %}
+    <p>Вы уверены, что хотите удалить элемент "{{ object }}"?</p>
+    <input type="submit" value="Удалить">
+</form>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'users/base.html' %}
+{% block content %}
+{% if request.user.is_authenticated %}
+   <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить сообщение</button>
+    </form>
+
+    {% for p in object_list %}
+    <h2>Сообщение пользователю: {{p.user2}}</h2>
+    <br>{{p.content}}</br>
+
+ 
+    {% endfor %}
+{% endif %}
+
+
+
+
+{% endblock %}

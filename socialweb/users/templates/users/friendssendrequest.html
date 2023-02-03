@@ -1,0 +1,11 @@
+{% extends 'users/base.html' %}
+{% block content %}
+{% if request.user.is_authenticated %}
+
+<form method="post">{% csrf_token %}
+    <p>Отправить предложение дружбы?</p>
+    <input type="submit" value="Отправить">
+</form>
+
+{% endif %}
+{% endblock %}
